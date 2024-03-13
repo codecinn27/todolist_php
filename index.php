@@ -1,3 +1,13 @@
+<?php
+    require "conn.php";
+
+    if(isset($_POST['mytask'])){
+        $task = $_POST['mytask'];
+        $insert = $conn->prepare("INSERT INTO tasks (name) VALUES (:name)");
+        $insert->execute(['name' => $task]);
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,10 +20,10 @@
 </head>
 <body>
     <div class="container">
-		<form class="form-inline">
+		<form method="POST" action="index.php" class="form-inline">
 		  <div class="form-group mx-sm-3 mb-2">
 		    <label for="inputPassword2" class="sr-only">create</label>
-		    <input type="text" class="form-control" id="inputPassword2" placeholder="enter task">
+		    <input name="mytask" type="text" class="form-control" id="inputPassword2" placeholder="enter task">
 		  </div>
             <button type="submit" class="btn btn-primary mb-2">create</button>
 		</form>
