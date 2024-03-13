@@ -2,7 +2,7 @@
     try{
 
         $host = "localhost";
-        $db = "todos";
+        $db = "todolist";
         $user = "root";
         $pass = "";
 
