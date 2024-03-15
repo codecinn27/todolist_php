@@ -1,11 +1,6 @@
 <?php
     require "conn.php";
-
-    if(isset($_POST['mytask'])){
-        $task = $_POST['mytask'];
-        $insert = $conn->prepare("INSERT INTO tasks (name) VALUES (:name)");
-        $insert->execute(['name' => $task]);
-    }
+    $data = $conn->query("SELECT * FROM tasks");
 ?>
 
 <!DOCTYPE html>
@@ -20,12 +15,12 @@
 </head>
 <body>
     <div class="container">
-		<form method="POST" action="index.php" class="form-inline">
+		<form method="POST" action="insert.php" class="form-inline">
 		  <div class="form-group mx-sm-3 mb-2">
 		    <label for="inputPassword2" class="sr-only">create</label>
 		    <input name="mytask" type="text" class="form-control" id="inputPassword2" placeholder="enter task">
 		  </div>
-            <button type="submit" class="btn btn-primary mb-2">create</button>
+            <button name="submit" type="submit" class="btn btn-primary mb-2">create</button>
 		</form>
         <table class="table">
 		  <thead>
@@ -36,15 +31,13 @@
 		    </tr>
 		  </thead>
           <tbody>
+            <?php while($rows = $data->fetch(PDO::FETCH_ASSOC)){ ?>
+
             <tr>
-              <td>1</td>
-              <td>Task 1</td>
+              <td><?php echo $rows['id']; ?></td>
+              <td><?php echo $rows['name']; ?></td>              
               <td><a href="#" class="btn btn-danger">delete</a></td>
             </tr>
-            <tr>
-              <td>2</td>
-              <td>Task 2</td>
-              <td><a href="#" class="btn btn-danger">delete</a></td>
-            </tr>
+            <?php } ?>
 </body>
 </html>
