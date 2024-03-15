@@ -36,7 +36,7 @@
             <tr>
               <td><?php echo $rows['id']; ?></td>
               <td><?php echo $rows['name']; ?></td>              
-              <td><a href="#" class="btn btn-danger">delete</a></td>
+              <td><a href="delete.php?del_id=<?php echo $rows['id']; ?>" class="btn btn-danger">delete</a></td>
             </tr>
             <?php } ?>
 </body>
