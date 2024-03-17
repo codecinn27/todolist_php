@@ -3,16 +3,7 @@
     $data = $conn->query("SELECT * FROM tasks");
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To Do List PHP</title>
-	<link rel="stylesheet" href="style.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
-</head>
+<?php include "header.php"; ?>
 <body>
     <div class="container">
 		<form method="POST" action="insert.php" class="form-inline">
@@ -41,5 +32,4 @@
               <td><a href="update.php?upd_id=<?php echo $rows['id']; ?>" class="btn btn-warning">update</a></td>
             </tr>
             <?php } ?>
-</body>
-</html>
+<?php include "footer.php"; ?>

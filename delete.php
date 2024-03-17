@@ -9,4 +9,4 @@
         // redirect to index page
         header("location: index.php");   
     }
-    
+  
