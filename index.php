@@ -27,7 +27,8 @@
 		    <tr>
 		      <th>#</th>
 		      <th>Task Name</th>
-		      <th>Action</th>
+		      <th>Delete</th>
+          <th>Update</th>
 		    </tr>
 		  </thead>
           <tbody>
@@ -37,6 +38,7 @@
               <td><?php echo $rows['id']; ?></td>
               <td><?php echo $rows['name']; ?></td>              
               <td><a href="delete.php?del_id=<?php echo $rows['id']; ?>" class="btn btn-danger">delete</a></td>
+              <td><a href="update.php?upd_id=<?php echo $rows['id']; ?>" class="btn btn-warning">update</a></td>
             </tr>
             <?php } ?>
 </body>
